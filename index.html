@@ -70,6 +70,7 @@
   <h1 id="title">VMS — Requirements</h1>
   <p class="lead" id="lead"></p>
   <div id="banner"></div>
+  <div id="who" class="muted" style="margin:0 0 14px"></div>
 
   <!-- Menu of available forms (shown when no ?form= is given) -->
   <div id="menu" class="hidden"></div>
@@ -104,6 +105,25 @@ const state = { data: null, formId: null, respondent: null, passcode: null, valu
 const $ = (s, r=document) => r.querySelector(s);
 const el = (t, props={}, kids=[]) => { const n=document.createElement(t); Object.assign(n,props); (Array.isArray(kids)?kids:[kids]).forEach(k=>n.append(k)); return n; };
 
+// Remember the verified name + code on this device so the other forms skip the gate.
+const CRED_KEY = 'vmsReqCreds';
+function loadCreds() {
+  try { const c = JSON.parse(localStorage.getItem(CRED_KEY)); if (c && c.name && c.passcode) return c; } catch (e) {}
+  return null;
+}
+function saveCreds(name, passcode) { try { localStorage.setItem(CRED_KEY, JSON.stringify({ name, passcode })); } catch (e) {} }
+function clearCreds() { try { localStorage.removeItem(CRED_KEY); } catch (e) {} location.href = location.pathname + location.search; }
+
+function showIdentity() {
+  const w = $('#who'); if (!w) return;
+  w.innerHTML = '';
+  if (!state.respondent) return;
+  w.append(document.createTextNode('Answering as ' + state.respondent + ' · '));
+  const a = el('a', { href: '#', textContent: 'change name / code' });
+  a.onclick = (e) => { e.preventDefault(); clearCreds(); };
+  w.append(a);
+}
+
 function banner(msg, kind) {
   const b = $('#banner');
   if (!msg) { b.innerHTML=''; return; }
@@ -134,7 +154,18 @@ async function boot() {
   const m = state.data.meta || {};
   if (m.title) { $('#title').textContent = m.title; document.title = m.title; }
   if (m.topic) { $('#lead').textContent = m.topic; }
-  $('#gate').classList.remove('hidden');
+
+  const creds = loadCreds();
+  if (creds) {
+    // Already verified on this device — go straight to the questions.
+    state.respondent = creds.name;
+    state.passcode = creds.passcode;
+    showIdentity();
+    $('#form').classList.remove('hidden');
+    render();
+  } else {
+    $('#gate').classList.remove('hidden');
+  }
 }
 
 async function showMenu() {
@@ -145,6 +176,8 @@ async function showMenu() {
   } catch (e) { banner('Could not load the list of forms. Please refresh.', 'err'); return; }
   if (cfg.title) { $('#title').textContent = cfg.title; document.title = cfg.title; }
   if (cfg.intro) { $('#lead').textContent = cfg.intro; }
+  const creds = loadCreds();
+  if (creds) { state.respondent = creds.name; showIdentity(); }
   const menu = $('#menu'); menu.innerHTML = ''; menu.classList.remove('hidden');
   (cfg.forms || []).forEach(f => {
     const card = el('a', { className:'card', href:'?form=' + encodeURIComponent(f.id) });
@@ -233,7 +266,9 @@ async function start() {
   }
   state.respondent = name;
   state.passcode = code;
+  saveCreds(name, code);
   banner('');
+  showIdentity();
   $('#gate').classList.add('hidden');
   $('#form').classList.remove('hidden');
   render();
