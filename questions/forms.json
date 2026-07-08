@@ -11,6 +11,11 @@
       "id": "properties",
       "title": "Farms App — Farm & Property Details",
       "desc": "Where each piece of information belongs: farm business, property, or paddock."
+    },
+    {
+      "id": "paddocks",
+      "title": "Farms App — Trials & Paddocks",
+      "desc": "Which paddock details live with the farm vs which are decided per trial."
     }
   ]
 }

@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "Farms App — Trials & Paddocks",
+    "respondents": ["Farm Manager", "Trials Manager"],
+    "topic": "A trial runs on a paddock (a named field within a property). These questions sort which details live with the farm vs which are decided per trial."
+  },
+  "questions": [
+    {
+      "id": "paddock.permanent",
+      "section": "The paddock itself",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Is a paddock a permanent part of a property you'd know about before any trial, or is the trial area worked out fresh each time?",
+      "options": [
+        "Permanent part of the property",
+        "Worked out fresh each trial",
+        "A mix",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.multitrial",
+      "section": "The paddock itself",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Can the same paddock host more than one trial over time? (we believe yes — please confirm)",
+      "options": [
+        "Yes",
+        "No",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.boundary",
+      "section": "Shape, size, location",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "A paddock's boundary/shape on a map — a fixed feature of the property, or drawn specifically for each trial?",
+      "options": [
+        "Fixed feature of the property",
+        "Drawn per trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.size",
+      "section": "Shape, size, location",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "A paddock's size — a known figure for that paddock, or measured for the trial?",
+      "options": [
+        "Known for the paddock",
+        "Measured per trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.soil.type",
+      "section": "Land characteristics",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Soil type — a known characteristic of the paddock (same each trial), or assessed per trial?",
+      "options": [
+        "Known characteristic of the paddock",
+        "Assessed per trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.soil.test",
+      "section": "Land characteristics",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Knowing whether a soil test was done in the last 6 months — does that belong with the paddock, or with each trial?",
+      "options": [
+        "With the paddock",
+        "With each trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.irrigation",
+      "section": "Land characteristics",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Irrigation — a property-wide feature, specific to each paddock, or does it depend on the trial?",
+      "options": [
+        "Property-wide",
+        "Per paddock",
+        "Depends on the trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.currentuse",
+      "section": "Land characteristics",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Current use (what's on the land now) — a stable fact about the paddock, or a snapshot for a trial?",
+      "options": [
+        "Stable fact about the paddock",
+        "Snapshot for a trial",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "paddock.access",
+      "section": "Access",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "Access notes (gates, directions, how to reach it) — a lasting property of the paddock, or noted per trial?",
+      "options": [
+        "Lasting property of the paddock",
+        "Noted per trial",
+        "Not sure"
+      ]
+    }
+  ]
+}
