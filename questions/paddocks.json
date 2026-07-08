@@ -120,6 +120,20 @@
       ]
     },
     {
+      "id": "paddock.crop",
+      "section": "Land characteristics",
+      "app": "farms",
+      "askOf": "Trials Manager",
+      "status": "active",
+      "type": "single",
+      "text": "A trial proposal picks a crop type and crop. Should that come from what the paddock/property already grows, or be chosen separately for each trial?",
+      "options": [
+        "Comes from the paddock/property",
+        "Chosen separately per trial",
+        "Not sure"
+      ]
+    },
+    {
       "id": "paddock.access",
       "section": "Access",
       "app": "farms",
