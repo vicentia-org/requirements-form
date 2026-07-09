@@ -2,7 +2,7 @@
   "meta": {
     "title": "Commercial Role",
     "respondents": ["Farm Manager", "Trials Manager"],
-    "topic": "Who Commercials are, their regions, and what they can create/see."
+    "topic": "Who Commercials are, their regions, and what they can create and see."
   },
   "questions": [
     {
@@ -12,10 +12,28 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Who creates a Commercial user and assigns them to their country?",
+      "text": "In real life, who decides that someone becomes a Commercial for a country and puts them in charge of it?",
+      "help": "How it actually happens in your business — if it's someone else, name them in the note box.",
       "options": [
-        "A head-office / SUPER admin",
-        "A local lead/manager in that country",
+        "Head office / senior leadership",
+        "A country manager",
+        "A regional manager",
+        "Someone else",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "commercial.admin.who.app",
+      "section": "Commercials — roles & responsibilities",
+      "app": "farms",
+      "askOf": "Farm Manager",
+      "status": "active",
+      "type": "single",
+      "text": "And in the app, who should be able to set that up — the same person, or someone else?",
+      "help": "If someone else, say who in the note box.",
+      "options": [
+        "The same person as above",
+        "Someone else",
         "Not sure"
       ]
     },
@@ -26,13 +44,30 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Who should decide which regions within a country a Commercial is allowed to create farms in?",
-      "help": "This person needs local knowledge of that country's areas — e.g. someone at head office may not know the regions of Kenya or Mexico.",
+      "text": "Who decides which areas within a country a Commercial looks after?",
+      "help": "Whoever knows the country's areas well enough to make that call. If it's someone else, name them in the note box.",
       "options": [
-        "A head-office / SUPER admin",
-        "A local lead/manager in that country",
-        "The Commercial proposes their areas and someone approves",
-        "Not sure — needs discussion"
+        "Head office / senior leadership",
+        "A country manager",
+        "A regional manager",
+        "The Commercial suggests it and a manager approves",
+        "Someone else",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "commercial.region.authority.app",
+      "section": "Commercials — roles & responsibilities",
+      "app": "farms",
+      "askOf": "Farm Manager",
+      "status": "active",
+      "type": "single",
+      "text": "And in the app, who should control that — the same person, or someone else?",
+      "help": "If someone else, say who in the note box.",
+      "options": [
+        "The same person as above",
+        "Someone else",
+        "Not sure"
       ]
     },
     {
@@ -42,12 +77,12 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Within their country, does a Commercial always work in specific regions, or can a Commercial cover the whole country?",
-      "help": "e.g. in Australia a Commercial covers QLD plus parts of NSW; other countries may not split into regions at all.",
+      "text": "Does a Commercial usually look after specific areas of a country, or can one Commercial cover a whole country on their own?",
+      "help": "e.g. in Australia a Commercial covers QLD plus parts of NSW; other countries may not split into areas at all.",
       "options": [
-        "Always specific regions",
-        "Can be the whole country",
-        "It varies by country",
+        "Always specific areas",
+        "Can cover the whole country",
+        "Varies by country",
         "Not sure"
       ]
     },
@@ -58,13 +93,13 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "multi",
-      "text": "How fine-grained are a Commercial's regions? Tick every level you use.",
+      "text": "When you describe the area a Commercial covers, what do you use? Tick every level you use.",
       "help": "e.g. 'QLD' is a state; 'parts of NSW' might be shires/council areas.",
       "options": [
         "States / provinces",
         "Districts / shires / council areas",
         "Postcodes",
-        "Custom areas drawn on a map",
+        "Areas drawn on a map",
         "Not sure"
       ]
     },
@@ -75,10 +110,10 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Can the same region be assigned to more than one Commercial, or must each region belong to only one?",
+      "text": "Can two Commercials share the same area, or is each area looked after by just one?",
       "options": [
-        "Each region belongs to only one Commercial (no overlap)",
-        "A region can be shared by more than one Commercial",
+        "Each area has just one Commercial",
+        "An area can be shared by more than one",
         "Not sure"
       ]
     },
@@ -89,10 +124,10 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Should a Commercial be able to create/edit farms only inside their assigned regions, or anywhere in their country?",
+      "text": "Does a Commercial only deal with farms in their own areas, or can they work with farms anywhere in their country?",
       "options": [
-        "Only within their assigned regions",
-        "Anywhere in their country",
+        "Only farms in their own areas",
+        "Any farm in their country",
         "Not sure"
       ]
     },
@@ -103,10 +138,11 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Which farms should a Commercial be able to SEE (view, not necessarily edit)?",
+      "text": "Which farms does a Commercial need to know about (see the details of)?",
+      "help": "Even farms they don't personally manage.",
       "options": [
-        "Only farms in their own regions",
-        "All farms in their own country",
+        "Only farms in their own areas",
+        "All farms in their country",
         "Not sure"
       ]
     },
@@ -117,11 +153,11 @@
       "askOf": "Farm Manager",
       "status": "active",
       "type": "single",
-      "text": "Can a Commercial edit or delete a farm that a DIFFERENT Commercial created?",
+      "text": "When a Commercial sets up a farm, whose is it to manage over time?",
       "options": [
-        "No — only the farms they created",
-        "Yes — any farm within their regions",
-        "Yes — any farm in their country",
+        "Only the Commercial who set it up",
+        "Any Commercial covering that area",
+        "Any Commercial in the country",
         "Not sure"
       ]
     }
