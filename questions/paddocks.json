@@ -6,6 +6,22 @@
   },
   "questions": [
     {
+      "id": "respondent.country",
+      "section": "About you",
+      "app": "farms",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "Which country are you answering for?",
+      "help": "So we can compare answers across countries. If you cover more than one, pick 'Head office / multiple' and add detail in the note.",
+      "options": [
+        "Australia",
+        "Mexico",
+        "Kenya",
+        "Head office / multiple countries"
+      ]
+    },
+    {
       "id": "paddock.permanent",
       "section": "The paddock itself",
       "app": "farms",
