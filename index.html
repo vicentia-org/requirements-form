@@ -186,6 +186,7 @@ async function showMenu() {
     cfg = await res.json();
   } catch (e) { banner('Could not load the list of forms. Please refresh.', 'err'); return; }
   if (cfg.title) { $('#title').textContent = cfg.title; document.title = cfg.title; }
+  if (cfg.menuHidden) { $('#lead').textContent = cfg.menuHiddenText; return; }
   if (cfg.intro) { $('#lead').textContent = cfg.intro; }
   const creds = loadCreds();
   if (creds) { state.respondent = creds.name; showIdentity(); }

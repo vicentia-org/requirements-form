@@ -1,6 +1,8 @@
 {
   "title": "VMS — Requirements",
   "intro": "Pick the topic you're helping with. Each form is short. You can reopen any of them later and change your answers.",
+  "menuHidden": true,
+  "menuHiddenText": "Please use the link you were given to open your form.",
   "forms": [
     {
       "id": "commercials",
