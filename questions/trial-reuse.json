@@ -15,7 +15,8 @@
       "askOf": "All",
       "status": "active",
       "type": "number",
-      "text": "1.1. How many trials did you prepare in the last 12 months?"
+      "text": "1.1. How many trials did you prepare in the last 12 months?",
+      "help": "Count all your trials, whether or not you used the app."
     },
     {
       "id": "similarCount",
@@ -50,7 +51,8 @@
       "askOf": "All",
       "status": "active",
       "type": "short",
-      "text": "1.4. Roughly how long does a proposal take you when it is similar to an earlier one, compared with a new one?"
+      "text": "1.4. Roughly how long does a proposal take you when it is similar to an earlier one, compared with a new one?",
+      "help": "Answer from your usual experience, in the app or before it."
     },
     {
       "id": "timing",
@@ -193,7 +195,7 @@
       "text": "5.1. Which starting point would you normally prefer?",
       "help": "Imagine you need to prepare a new trial that is similar to one you have conducted before.",
       "options": [
-        "An earlier trial",
+        "An earlier trial's proposal",
         "A standard template that is not linked to an actual trial",
         "Both, depending on the situation",
         "Neither, I would start from scratch"
@@ -221,7 +223,7 @@
       "type": "single",
       "text": "5.3. If only one of these could be built, which would you want first?",
       "options": [
-        "Copying an earlier trial",
+        "Copying an earlier trial's proposal",
         "A standard template",
         "No strong preference",
         "Neither would save me much time"
