@@ -33,12 +33,13 @@
       "askOf": "All",
       "status": "active",
       "type": "multi",
-      "text": "1.3. When a new trial is similar to an earlier one, what do you do today?",
-      "help": "Select all that apply.",
+      "text": "1.3. When a new trial is similar to an earlier one, how have you prepared its proposal?",
+      "help": "Select all that apply, whether the proposal was written in the form or before it.",
       "options": [
-        "I write the proposal again from scratch",
-        "I copy text from the earlier PDF or document",
-        "I keep my own templates outside the app",
+        "I write it again from scratch",
+        "I copy text from the earlier proposal, its PDF or Word document",
+        "I keep my own notes or templates outside the app and copy from them",
+        "I have not prepared a similar trial yet",
         "Other (please add it in the note)"
       ]
     },
