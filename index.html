@@ -24,7 +24,7 @@
   }
   .wrap { max-width: 680px; margin: 0 auto; padding: 20px 16px 80px; }
   h1 { font-size: 1.4rem; margin: 8px 0 4px; letter-spacing: -.01em; }
-  .lead { color: var(--muted); margin: 0 0 20px; }
+  .lead { color: var(--muted); margin: 0 0 20px; white-space: pre-line; }
   a { color: var(--accent); }
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -49,6 +49,10 @@
     border-radius: 10px; margin: 6px 0; cursor: pointer; background: #fbfcfb; }
   .opt input { margin-top: 3px; }
   .opt:has(input:checked) { border-color: var(--accent); background: #edf6ef; }
+  .grid-row { padding: 12px 0; border-top: 1px solid var(--line); }
+  .grid-row-label { font-weight: 600; margin: 0 0 4px; }
+  .grid-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 6px; }
+  .grid-opts .opt { margin: 0; font-size: .92rem; }
   .btn {
     appearance: none; border: 0; border-radius: 12px; padding: 14px 18px; font: inherit; font-weight: 700;
     background: var(--accent); color: var(--accent-ink); cursor: pointer; width: 100%;
@@ -110,12 +114,15 @@ const el = (t, props={}, kids=[]) => { const n=document.createElement(t); Object
 
 // Remember the verified name + code on this device so the other forms skip the gate.
 const CRED_KEY = 'vmsReqCreds';
+// A standalone form has its own endpoint and access code, so its own remembered code too.
+function standalone() { return !!(state.data && state.data.meta && state.data.meta.standalone); }
+function credKey() { return standalone() ? CRED_KEY + ':' + state.formId : CRED_KEY; }
 function loadCreds() {
-  try { const c = JSON.parse(localStorage.getItem(CRED_KEY)); if (c && c.name && c.passcode) return c; } catch (e) {}
+  try { const c = JSON.parse(localStorage.getItem(credKey())); if (c && c.name && c.passcode) return c; } catch (e) {}
   return null;
 }
-function saveCreds(name, passcode) { try { localStorage.setItem(CRED_KEY, JSON.stringify({ name, passcode })); } catch (e) {} }
-function clearCreds() { try { localStorage.removeItem(CRED_KEY); } catch (e) {} location.href = location.pathname + location.search; }
+function saveCreds(name, passcode) { try { localStorage.setItem(credKey(), JSON.stringify({ name, passcode })); } catch (e) {} }
+function clearCreds() { try { localStorage.removeItem(credKey()); } catch (e) {} location.href = location.pathname + location.search; }
 
 function showIdentity() {
   const w = $('#who'); if (!w) return;
@@ -136,7 +143,7 @@ function banner(msg, kind) {
 // Post JSON as text/plain so it stays a "simple" CORS request (no preflight),
 // which Apps Script web apps handle and let us read the response of.
 async function post(payload) {
-  const res = await fetch(ENDPOINT, {
+  const res = await fetch(standalone() ? state.data.meta.endpoint : ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(payload)
@@ -157,6 +164,7 @@ async function boot() {
   const m = state.data.meta || {};
   if (m.title) { $('#title').textContent = m.title; document.title = m.title; }
   if (m.topic) { $('#lead').textContent = m.topic; }
+  if (m.standalone) { $('#gate .backlink').classList.add('hidden'); $('#form .footer').classList.add('hidden'); }
 
   const creds = loadCreds();
   if (creds) {
@@ -207,6 +215,21 @@ function fieldFor(q) {
   // (a full re-render on each keystroke would destroy the field and drop focus).
   if (q.type === 'text') return el('textarea', { id:'f_'+q.id, value: state.values[q.id]||'' , oninput:e=>{ state.values[q.id]=e.target.value; }});
   if (q.type === 'number') return el('input', { type:'number', id:'f_'+q.id, value: state.values[q.id]??'', oninput:e=>{ state.values[q.id]=e.target.value; }});
+  if (q.type === 'short') return el('input', { type:'text', id:'f_'+q.id, value: state.values[q.id]||'', oninput:e=>{ state.values[q.id]=e.target.value; }});
+  if (q.type === 'grid') {
+    const box = el('div');
+    q.rows.forEach(row => {
+      const opts = el('div', { className:'grid-opts' });
+      q.options.forEach(opt => {
+        const input = el('input', { type:'radio', name:'g_'+q.id+'_'+row, value:opt });
+        input.checked = (state.values[q.id]||{})[row] === opt;
+        input.onchange = () => set(q.id, { ...state.values[q.id], [row]: opt });
+        opts.append(el('label',{className:'opt'},[input, el('span',{textContent:opt})]));
+      });
+      box.append(el('div',{className:'grid-row'},[el('div',{className:'grid-row-label', textContent:row}), opts]));
+    });
+    return box;
+  }
   if (q.type === 'yes-no') q = {...q, type:'single', options:['Yes','No']};
   if (q.type === 'single' || q.type === 'multi') {
     const box = el('div');
@@ -284,10 +307,11 @@ function showDone() {
   d.append(el('div', { className:'section-tag', textContent:'Saved' }));
   d.append(el('div', { style:'font-size:1.15rem;font-weight:700;margin:2px 0 6px', textContent:'✓ Your answers were saved' }));
   d.append(el('div', { className:'help', textContent: title + ' · answered by ' + (state.respondent || '') }));
+  if (state.data.meta.thanks) d.append(el('div', { textContent: state.data.meta.thanks }));
   const review = el('button', { className:'btn', style:'margin-top:16px', textContent:'Review / change my answers' });
   review.onclick = () => { d.classList.add('hidden'); $('#form').classList.remove('hidden'); render(); window.scrollTo({top:0, behavior:'smooth'}); };
   d.append(review);
-  d.append(el('a', { className:'backlink', href:'./', textContent:'← Back to all topics', style:'display:block;margin-top:16px' }));
+  if (!standalone()) d.append(el('a', { className:'backlink', href:'./', textContent:'← Back to all topics', style:'display:block;margin-top:16px' }));
   window.scrollTo({top:0, behavior:'smooth'});
 }
 

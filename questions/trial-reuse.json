@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "title": "Understanding how you prepare similar trials",
+    "respondents": ["Field officers"],
+    "topic": "We are looking at how field officers prepare proposals for trials that are similar to previous trials.\n\nWe would like to understand which parts of your work are repeated, which need changing, and which need to be prepared from scratch.\n\nYour answers will help us understand your current ways of working and identify where improvements might be possible. This survey does not mean that any particular feature will be developed.\n\nPlease answer based on your usual work across all your trials, not just your most recent trial.\n\nEstimated time: 5 minutes.",
+    "thanks": "Thank you for your time and feedback.",
+    "standalone": true,
+    "endpoint": "https://script.google.com/macros/s/AKfycbzwoyNvIUUF8nnqkLEu_TvIieuX6dMJMdogMJJgkk2QaZiRsdtblA7c5fq6aLOdpru1/exec"
+  },
+  "questions": [
+    {
+      "id": "frequency",
+      "section": "1. How often do you prepare similar trials?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "1.1. How often do you prepare two or more trials that are similar in some way?",
+      "help": "Think about trials you have worked on over the last 12 months.",
+      "options": ["Every week", "Several times a month", "About once a month", "A few times a year", "Rarely", "Never"]
+    },
+    {
+      "id": "batchSize",
+      "section": "1. How often do you prepare similar trials?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "1.2. When this happens, how many similar trials do you usually prepare?",
+      "options": ["2", "3–4", "5–10", "More than 10"]
+    },
+    {
+      "id": "timing",
+      "section": "1. How often do you prepare similar trials?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "1.3. When do you usually prepare these similar trials?",
+      "options": [
+        "At the same time, as part of the same project or season",
+        "At different times during the same season",
+        "In different seasons or years",
+        "All of the above, depending on the situation"
+      ]
+    },
+    {
+      "id": "situations",
+      "section": "2. What makes your trials similar?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "multi",
+      "text": "2.1. Which situations best describe the similar trials you usually prepare?",
+      "help": "Select all that apply.",
+      "options": [
+        "Same grower, same farm, same season",
+        "Same grower, same farm, different season or year",
+        "Same grower, different farm",
+        "Different growers, same farm",
+        "Different growers, different farms, but same crop and trial purpose",
+        "Same trial purpose, but different crops",
+        "Same products or treatments, but different trial objectives",
+        "Other (please add it in the note)"
+      ]
+    },
+    {
+      "id": "mostCommonSituation",
+      "section": "2. What makes your trials similar?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "2.2. Which of these situations is the most common in your work?",
+      "help": "Select one option.",
+      "options": [
+        "Same grower, same farm, same season",
+        "Same grower, same farm, different season or year",
+        "Same grower, different farm",
+        "Different growers, same farm",
+        "Different growers, different farms, but same crop and trial purpose",
+        "Same trial purpose, but different crops",
+        "Same products or treatments, but different trial objectives",
+        "Other (please add it in the note)"
+      ]
+    },
+    {
+      "id": "sections",
+      "section": "3. What do you reuse when preparing similar trials?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "grid",
+      "text": "Think about the nine sections of a proposal.",
+      "help": "For each section, select the option that best describes what you normally do when preparing a similar trial.",
+      "rows": ["Objectives", "Trial site", "Contacts", "Trial design", "Treatments", "Photos", "Methodology", "Commitments", "Operating budget"],
+      "options": ["Usually keep as it is", "Keep but adjust", "Redo most of it", "Start from scratch"]
+    },
+    {
+      "id": "sectionsDepends",
+      "section": "3. What do you reuse when preparing similar trials?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "text",
+      "text": "If your answer depends on the type of similar trial, please explain briefly:"
+    },
+    {
+      "id": "alwaysChange",
+      "section": "4. What always needs to change?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "multi",
+      "text": "4.1. Even when two trials are very similar, which details do you normally need to change or check carefully?",
+      "help": "Select all that apply.",
+      "options": [
+        "Grower or client details",
+        "Farm, site or block details",
+        "Trial objectives",
+        "Trial design or layout",
+        "Products, rates or application timings",
+        "Application methods",
+        "Photos",
+        "Measurements and assessments",
+        "Trial milestones and dates",
+        "Operating budget",
+        "Contacts and responsibilities",
+        "Other (please add it in the note)"
+      ]
+    },
+    {
+      "id": "risky",
+      "section": "4. What always needs to change?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "multi",
+      "text": "4.2. Are there any details that would be risky to carry over from an earlier trial without checking them?",
+      "help": "Select all that apply.",
+      "options": [
+        "Grower, farm or site details",
+        "Products or application rates",
+        "Application timings",
+        "Trial design or block layout",
+        "Trial objectives",
+        "Measurements and assessments",
+        "Commitments and dates",
+        "Operating budget",
+        "Contacts or responsibilities",
+        "Other (please add it in the note)"
+      ]
+    },
+    {
+      "id": "riskyExplain",
+      "section": "4. What always needs to change?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "text",
+      "text": "Please explain any particular risks you have experienced or are concerned about:"
+    },
+    {
+      "id": "startingPoint",
+      "section": "5. Where would you normally start?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "single",
+      "text": "5.1. Which starting point would you normally prefer?",
+      "help": "Imagine you need to prepare a new trial that is similar to one you have conducted before.",
+      "options": [
+        "An earlier trial that I conducted, including its proposal",
+        "An earlier trial conducted by a colleague",
+        "A standard template with predefined information that is not linked to an actual trial",
+        "A combination of these, depending on the situation",
+        "I would normally prepare the proposal from scratch"
+      ]
+    },
+    {
+      "id": "whoseWork",
+      "section": "5. Where would you normally start?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "multi",
+      "text": "5.2. Whose previous work would you consider using?",
+      "help": "Select all that apply.",
+      "options": [
+        "Only my own previous trials",
+        "Trials prepared by colleagues in my country",
+        "Any suitable trial prepared by someone in the company",
+        "I would prefer to use standard templates rather than another person's trials",
+        "I would not normally reuse another person's work"
+      ]
+    },
+    {
+      "id": "exampleCode1",
+      "section": "6. Can you give us an example?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "short",
+      "text": "Trial code 1",
+      "help": "Optional, but very helpful. Please provide the trial codes of one or two trials that you have prepared that were similar to other trials."
+    },
+    {
+      "id": "exampleCode2",
+      "section": "6. Can you give us an example?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "short",
+      "text": "Trial code 2"
+    },
+    {
+      "id": "exampleExplain",
+      "section": "6. Can you give us an example?",
+      "app": "trials",
+      "askOf": "All",
+      "status": "active",
+      "type": "text",
+      "text": "What was similar between them? What needed to change?"
+    }
+  ]
+}
